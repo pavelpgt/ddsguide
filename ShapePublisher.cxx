@@ -88,7 +88,7 @@ bool ShapePublisher::init()
 
     //CREATE THE TOPIC
     topic_ = participant_->create_topic(
-        "ShapeTopic",
+        "Circle",
         type_.get_type_name(),
         TOPIC_QOS_DEFAULT);
     if (topic_ == nullptr)
