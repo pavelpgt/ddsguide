@@ -143,10 +143,10 @@ void ShapePublisher::run()
     /* Initialize your structure here */
 
     int msgsent = 0;
-    char ch = 'y';
+    std::string ch = "y";
     do
     {
-        if (ch == 'y')
+        if (ch == "" || ch == "y")
         {
             st.color("BLUE");
             st.shapesize(10);
@@ -156,7 +156,7 @@ void ShapePublisher::run()
             ++msgsent;
             std::cout << "Sending sample, count=" << msgsent << ", send another sample?(y-yes,n-stop): ";
         }
-        else if (ch == 'n')
+        else if (ch == "n")
         {
             std::cout << "Stopping execution " << std::endl;
             break;
@@ -165,5 +165,5 @@ void ShapePublisher::run()
         {
             std::cout << "Command " << ch << " not recognized, please enter \"y/n\":";
         }
-    } while (std::cin >> ch);
+    } while (std::getline(std::cin, ch));
 }
