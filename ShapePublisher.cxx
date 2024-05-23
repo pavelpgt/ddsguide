@@ -64,10 +64,13 @@ bool ShapePublisher::init()
 {
     /* Initialize data_ here */
 
+    if (ReturnCode_t::RETCODE_OK == DomainParticipantFactory::get_instance()->load_XML_profiles_file("..//cfg//qos//DEFAULT_FASTDDS_PROFILES.xml")){
+        std::cout << "DEFAULT_FASTDDS_PROFILES.xml loaded successfuly" << std::endl;
+    } else {
+        std::cout << "Problem loading DEFAULT_FASTDDS_PROFILES.xml" << std::endl;
+    }
     //CREATE THE PARTICIPANT
-    DomainParticipantQos pqos;
-    pqos.name("Participant_pub");
-    participant_ = DomainParticipantFactory::get_instance()->create_participant(0, pqos);
+    participant_ = DomainParticipantFactory::get_instance()->create_participant_with_profile(0, "participant_profile");
     if (participant_ == nullptr)
     {
         return false;
