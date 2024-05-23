@@ -1,0 +1,10 @@
+.vs/
+build/CMakeFiles/
+build/Debug/
+build/Shape.dir/
+build/Shape_lib.dir/
+build/x64/
+build/CMakeCache.txt
+build/cmake_install.cmake
+*.filters
+*.user
