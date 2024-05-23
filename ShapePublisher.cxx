@@ -148,6 +148,10 @@ void ShapePublisher::run()
     {
         if (ch == 'y')
         {
+            st.color("BLUE");
+            st.shapesize(10);
+            st.x(75 + rand() % 50 + 1);
+            st.y(75 - rand() % 50 + 1);
             writer_->write(&st);
             ++msgsent;
             std::cout << "Sending sample, count=" << msgsent << ", send another sample?(y-yes,n-stop): ";

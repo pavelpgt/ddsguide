@@ -138,7 +138,7 @@ void ShapeSubscriber::SubListener::on_data_available(
         {
             // Print your structure data here.
             ++samples;
-            std::cout << "Sample received, count=" << samples << std::endl;
+            std::cout << "Sample received, count=" << samples << " , x=" << st.x() << " , y=" << st.y() << std::endl;
         }
     }
 }
