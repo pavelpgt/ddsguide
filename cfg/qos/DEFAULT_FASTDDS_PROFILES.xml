@@ -12,10 +12,29 @@
           </transport_descriptor>
         </transport_descriptors>
         
-        <participant profile_name="participant_profile">
+        <participant profile_name="participant_profile" is_default_profile="true">
           <domainId>0</domainId>
           <rtps>
-            <name>DDSFundamentals</name>
+            <name>DDSFundamentals app</name>
+			<propertiesPolicy>
+            <properties>
+                <!-- Activate Fast DDS Statistics Module -->
+                <property>
+                    <name>fastdds.statistics</name>
+                    <value>HISTORY_LATENCY_TOPIC;NETWORK_LATENCY_TOPIC;PUBLICATION_THROUGHPUT_TOPIC;SUBSCRIPTION_THROUGHPUT_TOPIC;RTPS_SENT_TOPIC;RTPS_LOST_TOPIC;HEARTBEAT_COUNT_TOPIC;ACKNACK_COUNT_TOPIC;NACKFRAG_COUNT_TOPIC;GAP_COUNT_TOPIC;DATA_COUNT_TOPIC;RESENT_DATAS_TOPIC;SAMPLE_DATAS_TOPIC;PDP_PACKETS_TOPIC;EDP_PACKETS_TOPIC;DISCOVERY_TOPIC;PHYSICAL_DATA_TOPIC</value>
+                </property>
+				<!-- Enable Monitor Service -->
+                <property>
+                    <name>fastdds.enable_monitor_service</name>
+                    <value>true</value>
+                </property>
+                <!-- Include Monitor Service in the Fast DDS Statistics (other way to enable it) -->
+                <property>
+                    <name>fastdds.statistics</name>
+                    <value>MONITOR_SERVICE_TOPIC</value>
+                </property>
+            </properties>
+        </propertiesPolicy>
           </rtps>
         </participant>
         
